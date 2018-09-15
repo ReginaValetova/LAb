@@ -1,18 +1,19 @@
 numbers = input().split(',')
 
 nature, integer, coomplex, even, odd, prime = [], [], [], [], [], []
-
+ff = True
 for element in numbers:
-    try:
-        element = float(element)
-        
-    except ValueError:
-        coomplex.append(element)
-        numbers.remove(element)
-		
-for i in range(0, len(numbers)):
-	numbers[i] = float(numbers[i])
-
+	try:
+		complex(element)
+	except ValueError:
+    	print('Hleb')
+    	ff = False
+    if ff == True:
+  		a = complex(element)
+    	if a.imag != 0: coomplex.append(a)
+		#for i in range(0, len(numbers)): numbers[i] = float(numbers[i])
+	if ff == False:	
+ 		element = float(element)
 
 for element in numbers:
 
@@ -20,7 +21,7 @@ for element in numbers:
 		element = int(element)
 		integer.append(element)
 
-for element in integer:
+for element in integer: 
 
 	if element > 0:
 		nature.append(element)
@@ -63,6 +64,3 @@ print('Нечётные числа: ')
 print(odd)
 print('Простые числа: ')
 print(prime)
-
-
-
